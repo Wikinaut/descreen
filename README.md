@@ -5,6 +5,12 @@ An implementation of GIMP [descreen plugin](http://web.archive.org/web/201611180
 ## Usage
 
 ```
+./descreen.py 
+usage: descreen.py [-h] [--thresh THRESH] [--radius RADIUS] [--middle MIDDLE] input output
+```
+
+## Example
+```
 python descreen.py images/example.png images/result.png
 ```
 
