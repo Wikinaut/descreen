@@ -2,7 +2,7 @@
 
 An implementation of GIMP [descreen plugin](http://web.archive.org/web/20161118075437/http://registry.gimp.org/node/24411) in python with OpenCV. It utilizes a custom normalization of magnitude spectrum, found in [fft plugin](http://web.archive.org/web/20161118081031/http://registry.gimp.org/node/19596), which assigns more energy to pixels further away from the center, thus allowing to use regular binary threshold to localize high frequency areas and create a mask automatically. It turned out to be very helpful in case of periodic pattern removal, therefor I adapted it for python.
 
-Attributuon: the script was taken from / originally written by https://github.com/6o6o/fft-descreen .
+Attribution: the script was taken from / originally written by https://github.com/6o6o/fft-descreen .
 
 
 ## Usage
