@@ -26,11 +26,3 @@ The normalized spectrum and its multi-channel mask of the above example respecti
 ## Motivation
 
 Originally intended to clean up deconvolution [checkerboard artifacts](http://distill.pub/2016/deconv-checkerboard), found in style transferred images, I thought it may have its uses in other areas, like cleaning low-dpi scans and therefor would be better off as a separate script. I excluded the optional despeckle step, found in original plugin for being too destructive. Instead, I find [waifu2x](//github.com/nagadomi/waifu2x) to give a superior result in case of artistically styled images, thus tend to use it with maximum noise reduction as a second step.
-
-Original image
-
-![orig](images/tubingen_orig.png)
-
-fft-descreen + waifu noise removal
-
-![result](images/tubingen_result.png)
