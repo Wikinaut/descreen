@@ -1,17 +1,22 @@
+#!/usr/bin/env python3
+
 import cv2
 import numpy as np
 import argparse
 
-parser = argparse.ArgumentParser(description='An fft-based descreen filter')
-parser.add_argument('input')
-parser.add_argument('output')
-parser.add_argument('--thresh', '-t', default=92, type=int,
+
+def setup_parser():
+
+	parser = argparse.ArgumentParser(description='An fft-based descreen filter')
+	parser.add_argument('input')
+	parser.add_argument('output')
+	parser.add_argument('--thresh', '-t', default=92, type=int,
                     help='Threshold level for normalized magnitude spectrum')
-parser.add_argument('--radius', '-r', default=6, type=int,
+	parser.add_argument('--radius', '-r', default=6, type=int,
                     help='Radius to expand the area of mask pixels')
-parser.add_argument('--middle', '-m', default=4, type=int,
+	parser.add_argument('--middle', '-m', default=4, type=int,
                     help='Ratio for middle preservation')
-args = parser.parse_args()
+	return parser.parse_args()
 
 def normalize(h, w):
     x = np.arange(w)
@@ -25,6 +30,9 @@ def ellipse(w, h):
     offset = (w+h)/2./(w*h)
     y, x = np.ogrid[-h: h+1., -w: w+1.]
     return np.uint8((x/w)**2 + (y/h)**2 - offset <= 1)
+
+
+args = setup_parser()
 
 img = np.float32(cv2.imread(args.input).transpose(2, 0, 1))
 rows, cols = img.shape[-2:]
